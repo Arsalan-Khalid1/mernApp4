@@ -1,4 +1,4 @@
-const app = require("express");
+const express = require("express");
 const bodyParser = require("body-parser");
 
 const placesRoutes = require("./routes/places-routes");
