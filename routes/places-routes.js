@@ -1,5 +1,6 @@
 const { json } = require('body-parser');
 const express = require('express');
+const HttpError = require('../models/http-errors');
 
 const router = express.Router();
 
@@ -24,9 +25,7 @@ router.get('/:pid', (req, res, next) => {
     });
 
     if(!place) {
-        const error = new Error('could not find the place for the provided Id');
-        error.code = 404;
-        throw error;
+        throw new HttpError("Could not find the place for the provided property", 404);
     }
 
     console.log('GET Request in Places');
@@ -39,9 +38,7 @@ router.get('/users/:uid', (req, res, next) => {
         return u.creator === userId;
     });
     if(!place) {
-        const error = new Error('could not find the place for the provided Id');
-        error.code = 404;
-        return next(error);
+        return next(new HttpError("Could not find the place for the provided property", 404));
     }
     return res.json({place});
 });
