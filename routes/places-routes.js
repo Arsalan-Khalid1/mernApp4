@@ -23,7 +23,15 @@ router.get('/:pid', (req, res, next) => {
         return p.id === placeId;
     });
     console.log('GET Request in Places');
-    res.json(place);
+    return res.json({place});
+});
+
+router.get('/users/:uid', (req, res, next) => {
+    const userId = req.params.uid;
+    const place = DUMMY_PLACES.find(u => {
+        return u.creator === userId;
+    });
+    return res.json({place});
 });
 
 module.exports = router;
