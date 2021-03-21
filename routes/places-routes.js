@@ -1,4 +1,3 @@
-const { json } = require('body-parser');
 const express = require('express');
 const placeController = require('../controllers/places-controller');
 const router = express.Router();
