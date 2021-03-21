@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get('/:pid', placeController.getPlaceById);
 
-router.get('/users/:uid', placeController.getPlaceByUserId);
+router.get('/users/:uid', placeController.getPlacesByUserId);
 
 router.post('/', placeController.createPlace);
 
