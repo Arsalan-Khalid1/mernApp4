@@ -63,10 +63,10 @@ const updatePlace = (req, res, next) => {
     const placeId = req.params.pid;
     const updatedPlace = {...DUMMY_PLACES.find(p => p.id === placeId)};
     const placeIndex = DUMMY_PLACES.findIndex(p => p.id === placeId);
-    updatePlace.title = title;
-    updatePlace.description = description;
-    DUMMY_PLACES[placeIndex] = updatePlace;
-    res.status(200).json({place: updatePlace});
+    updatedPlace.title = title;
+    updatedPlace.description = description;
+    DUMMY_PLACES[placeIndex] = updatedPlace;
+    res.status(200).json({place: updatedPlace}); 
 };
 
 const deletePlace = (req, res, next) => {};
