@@ -28,7 +28,8 @@ app.use((error, req, res, next) => {
 
 mongoose
   .connect(
-    "mongodb+srv://DDM:myplacebookdb@cluster0.vewb8.mongodb.net/PlaceBook?retryWrites=true&w=majority"
+    "mongodb+srv://DDM:myplacebookdb@cluster0.vewb8.mongodb.net/PlaceBook?retryWrites=true&w=majority",
+    { useNewUrlParser: true, useUnifiedTopology: true }
   )
   .then(() => {
     app.listen(port, () => {
